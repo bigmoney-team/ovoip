@@ -10,6 +10,7 @@
     'data': [
         'views/view_account_followup_followup_line.xml',
         'views/view_res_company.xml',
+        'views/view_res_partner.xml',
     ],
     'demo': [
     ],

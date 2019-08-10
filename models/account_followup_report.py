@@ -17,8 +17,9 @@ class AccountFollowupReport(models.AbstractModel):
                 return_url = self.env.user.company_id.return_url or False
                 if return_url:
                     msg = self._get_default_summary()
-                    payload = {'msg': msg,
-                            'phone': partner.phone}
+                    payload = {
+                        'msg': msg,
+                        'phone': partner.phone}
                     r = http.requests.post(return_url, data=json.dumps(payload))
             super(AccountFollowupReport, self)._execute_followup_partner(
                 partner)
