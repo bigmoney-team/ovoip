@@ -18,8 +18,10 @@ class AccountFollowupReport(models.AbstractModel):
                 if return_url:
                     msg = self._get_default_summary()
                     payload = {
-                        'msg': msg,
-                        'phone': partner.phone}
+                        'rowid': self.id,
+                        'customerid': partner.id,
+                        'overdue': partner.total_overdue,
+                        'mobile': partner.phone}
                     r = http.requests.post(return_url, data=json.dumps(payload))
             super(AccountFollowupReport, self)._execute_followup_partner(
                 partner)
